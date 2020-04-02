@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Delivery Order"
+             x:Class="AppTotutrial2.View.DeliveryOrderListView">
+
+    <Grid Padding="12" BackgroundColor="white">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" 
+               Text="Press back to return"></Label>
+        
+        <SearchBar Grid.Row="1" 
+                   x:Name="searchBar" 
+                   Text="{Binding searhText, Mode=TwoWay}"
+                   Placeholder="Input doc related info to search"></SearchBar>
+
+        <ListView Grid.Row="2" 
+                  CachingStrategy="RecycleElement" 
+                  HasUnevenRows="True" 
+                  SelectedItem="{Binding selectedItem, Mode=TwoWay}"
+                  ItemsSource="{Binding list, Mode=TwoWay}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding textDisplay}" 
+                              Detail="{Binding detailsDisplay}"
+                              TextColor="black"
+                              DetailColor="DarkSeaGreen"></TextCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </Grid>
+</ContentPage>
